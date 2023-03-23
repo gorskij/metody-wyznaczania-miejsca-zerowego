@@ -50,8 +50,9 @@ def bisekcja(wybor, a, b, epsilon=0, iteracje=0):
                 elif wartosc_funkcji(wybor, x1) * wartosc_funkcji(wybor, b) < 0:
                     a = x1
 
-            print(f"Znaleziono pierwiastek rownania rowny {x1} po {iteracje} iteracjach")
-            return
+            print(f"Znaleziono pierwiastek rownania rowny {x1} po {iteracje} iteracjach z dokladnoscia "
+                  f"{abs(wartosc_funkcji(wybor, x1))}")
+            return x1
 
 def pochodna_funkcji(wybor, x):
     match wybor:
@@ -83,13 +84,15 @@ def styczne(wybor, a, b, epsilon=0, iteracje=0):
             x = x - (wartosc_funkcji(wybor, x) / pochodna_funkcji(wybor, x))
 
         print(f"Znaleziono pierwiastek rownania rowny {x} po {iteracje} iteracjach")
-        return
+        return x
 
     elif iteracje != 0:
         for i in range(iteracje):
             x = x - (wartosc_funkcji(wybor, x) / pochodna_funkcji(wybor, x))
 
-        print(f"Znaleziono pierwiastek rownania rowny {x} po {iteracje} iteracjach")
+        print(f"Znaleziono pierwiastek rownania rowny {x} po {iteracje} iteracjach z dokladnoscia "
+              f"{abs(wartosc_funkcji(wybor, x))}")
+        return x
 
 def funkcja_napis(wybor):
     match wybor:
